@@ -1,4 +1,4 @@
-import { ButtonContainer, ButtonVariant } from './Button.styles';
+import { ButtonContainer } from './Button.styles';
 
 
 export function Button() {
