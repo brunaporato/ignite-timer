@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { CountdownContainer, Separator } from './styles'
 import { differenceInSeconds } from 'date-fns'
 import { CyclesContext } from '../..'
@@ -7,10 +7,13 @@ import { CyclesContext } from '../..'
 // Context API -> permite compartilharmos informações entre vários componentes ao mesmo tempo
 
 export function Countdown() {
-  const { activeCycle, activeCycleId, markCycleAsFinished } =
-    useContext(CyclesContext)
-
-  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
+  const {
+    activeCycle,
+    activeCycleId,
+    amountSecondsPassed,
+    markCycleAsFinished,
+    setSecondsPassed,
+  } = useContext(CyclesContext)
 
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
@@ -33,10 +36,10 @@ export function Countdown() {
 
         if (secondsDifference >= totalSeconds) {
           markCycleAsFinished()
-          setAmountSecondsPassed(totalSeconds)
+          setSecondsPassed(totalSeconds)
           clearInterval(interval)
         } else {
-          setAmountSecondsPassed(secondsDifference)
+          setSecondsPassed(secondsDifference)
         }
       }, 1000)
     }
@@ -44,7 +47,13 @@ export function Countdown() {
     return () => {
       clearInterval(interval)
     }
-  }, [activeCycle, activeCycleId, markCycleAsFinished, totalSeconds])
+  }, [
+    activeCycle,
+    activeCycleId,
+    markCycleAsFinished,
+    totalSeconds,
+    setSecondsPassed,
+  ])
 
   useEffect(() => {
     if (activeCycle) {
