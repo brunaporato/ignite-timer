@@ -23,31 +23,34 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            {cycles.map((cycle) => {
-              return (
-                <tr key={cycle.id}>
-                  <td>{cycle.task}</td>
-                  <td>{cycle.minutesAmount} minutos</td>
-                  <td>
-                    {formatDistanceToNow(new Date(cycle.startDate), {
-                      addSuffix: true,
-                      locale: ptBR,
-                    })}
-                  </td>
-                  <td>
-                    {cycle.finishedDate && (
-                      <Status statuscolor="green">Concluido</Status>
-                    )}
-                    {cycle.interruptedDate && (
-                      <Status statuscolor="red">Interrompido</Status>
-                    )}
-                    {!cycle.interruptedDate && !cycle.finishedDate && (
-                      <Status statuscolor="yellow">Em andamento</Status>
-                    )}
-                  </td>
-                </tr>
-              )
-            })}
+            {cycles
+              .slice()
+              .reverse()
+              .map((cycle) => {
+                return (
+                  <tr key={cycle.id}>
+                    <td>{cycle.task}</td>
+                    <td>{cycle.minutesAmount} minutos</td>
+                    <td>
+                      {formatDistanceToNow(new Date(cycle.startDate), {
+                        addSuffix: true,
+                        locale: ptBR,
+                      })}
+                    </td>
+                    <td>
+                      {cycle.finishedDate && (
+                        <Status statuscolor="green">Concluido</Status>
+                      )}
+                      {cycle.interruptedDate && (
+                        <Status statuscolor="red">Interrompido</Status>
+                      )}
+                      {!cycle.interruptedDate && !cycle.finishedDate && (
+                        <Status statuscolor="yellow">Em andamento</Status>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })}
           </tbody>
         </table>
       </HistoryList>
