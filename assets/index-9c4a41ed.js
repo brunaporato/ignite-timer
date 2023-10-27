@@ -306,4 +306,4 @@ Error generating stack: `+o.message+`
 
   display: flex;
   flex-direction: column;
-`;function C2(){return A.jsxs(E2,{children:[A.jsx(S2,{}),A.jsx(X1,{})]})}function P2(){return A.jsx(G1,{children:A.jsxs(ra,{path:"/",element:A.jsx(C2,{}),children:[A.jsx(ra,{path:"/",element:A.jsx(A_,{})}),A.jsx(ra,{path:"/history",element:A.jsx(w2,{})})]})})}function T2(){return A.jsxs(n1,{theme:a1,children:[A.jsx(ik,{children:A.jsx(N_,{children:A.jsx(P2,{})})}),A.jsx(s1,{})]})}El.createRoot(document.getElementById("root")).render(A.jsx(k.StrictMode,{children:A.jsx(T2,{})}));
+`;function C2(){return A.jsxs(E2,{children:[A.jsx(S2,{}),A.jsx(X1,{})]})}function P2(){return A.jsx(G1,{children:A.jsxs(ra,{path:"/ignite-timer",element:A.jsx(C2,{}),children:[A.jsx(ra,{path:"/ignite-timer",element:A.jsx(A_,{})}),A.jsx(ra,{path:"/ignite-timer/history",element:A.jsx(w2,{})})]})})}function T2(){return A.jsxs(n1,{theme:a1,children:[A.jsx(ik,{children:A.jsx(N_,{children:A.jsx(P2,{})})}),A.jsx(s1,{})]})}El.createRoot(document.getElementById("root")).render(A.jsx(k.StrictMode,{children:A.jsx(T2,{})}));
